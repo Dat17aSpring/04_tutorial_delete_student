@@ -1,37 +1,36 @@
-# #6 Tutorial delete student
-Code shown and explained in teachings 
+# #6 Code for the delete student action
+Code shown and explained in teachings    
+
+<img src="/img/delete.png" width="600px" />    
 
 ### Code added to the controller
-````java    
-  @GetMapping("/create")
-  public   String   create(Model   model)   {
-         model.addAttribute("student",   new   Student());  
-         return   "create";
-  } 
-
-  @PostMapping("/create")
-  public   String   create(@ModelAttribute   Student   stu)   {
-         String   index   =   Integer.toString(students.size()   +   1);          stu.setStudentId(index);
-         students.add(stu);
-        return   "redirect:/";
- }
+````java 
+  ArrayList<Student> students = new ArraList<>();
+  
+  @GetMapping("/delete")
+  public String delete(@RequestParam("id") int id, Model model) {
+        model.addAttribute("student", students.get(id));
+        return "delete";
+  }         
+  
+  @PostMapping("/delete")
+  public String delete(@ModelAttribute Student student){
+        students.remove(student.getStudentId());
+        return "redirect:/";
+  }
 
 ````   
-### create.html
+### delete.html
 ````java    
-  <form   method="Post"   th:action="@{/create}"   th:object="${student}">         
-         <input   type="text"   th:field="*{firstName}"   />
-         <input   type="text"   th:field="*{lastName}"/>
-         <input   type="date"   th:field="*{enrollmentDate}"/>
-         <input   type="text"   th:field="*{cpr}"/>          
-         <input   type="submit"   value="Send"   />
-  </form>
+    <h2>Are you sure you want to delete</h2>
+    
+    <form action="#" th:action="@{/delete}"  method="post" >
+        <p th:text="${student.firstName + ' ' +  student.lastName}"></p>
+        <input type="hidden"  th:field="${student.studentId}"  />
+        <input type="submit" value="YES" class="btn btn-del w"/>
+        <a href="/" class="btn btn-create w" >NO</a>
+    </form>
 ```` 
-### Student.java
-````java    
-//needed   for   input   field   on   html   pages   (in   order   to   serve   the   right format)
 
-@DateTimeFormat(pattern   =   "yyyy-MM-dd") 
-private   Date   enrollmentDate;
 
-```` 
+<div text-align="right">(&copy; clbo@kea.dk)</div>
