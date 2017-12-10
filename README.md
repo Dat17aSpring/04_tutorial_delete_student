@@ -33,4 +33,4 @@ Code shown and explained in teachings
 ```` 
 
 
-<div text-align="right">(&copy; clbo@kea.dk)</div>
+<div align="right">&copy; clbo@kea.dk</div>
