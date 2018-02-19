@@ -1,4 +1,4 @@
-# #6 Code for the delete student action
+# #4 Code for the delete student action
 Code shown and explained in teachings    
 
 <img src="https://github.com/Dat17i/04_agenda/blob/master/delete.png" width="600px" />    
