@@ -1,7 +1,7 @@
 # #6 Code for the delete student action
 Code shown and explained in teachings    
 
-<img src="/img/delete.png" width="600px" />    
+<img src="https://github.com/Dat17i/04_agenda/blob/master/delete.png" width="600px" />    
 
 ### Code added to the controller
 ````java 
